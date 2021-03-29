@@ -1,0 +1,15 @@
+.elements {
+  width: 880px;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .elements {
+    width: 700px;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .elements {
+    width: 282px;
+  }
+}

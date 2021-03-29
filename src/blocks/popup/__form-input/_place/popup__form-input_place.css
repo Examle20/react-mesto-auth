@@ -1,0 +1,13 @@
+.popup__form-input_place {
+  font-size: 12px;
+  line-height: 15px;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .popup__form-input_place {
+    width: 196px;
+    margin-left: 20px;
+  }
+  .popup__form-input_place:first-of-type {
+    margin-top: 36px;
+  }
+}
