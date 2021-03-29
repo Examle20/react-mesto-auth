@@ -1,0 +1,7 @@
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .popup__button-save_place {
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 48px;
+  }
+}

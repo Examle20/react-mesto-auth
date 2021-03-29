@@ -1,0 +1,19 @@
+.profile__photo-button {
+  position: absolute;
+  left: 47px;
+  top: 47px;
+  width: 26px;
+  height: 26px;
+  background-color: initial;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  border: none;
+  opacity: 0;
+
+  transition: opacity 0.7s;
+}
+
+.profile__photo-button:hover {
+  opacity: 1;
+}
