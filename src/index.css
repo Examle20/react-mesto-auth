@@ -63,10 +63,10 @@
 @import url(./blocks/popup/_hidden/popup_hidden.css);
 @import url(./blocks/loading/loading.css);
 @import url(./blocks/popup/__button-save/_loading/popup__button-save_loading.css);
-@import url(./blocks/popup/_success/popup_success.css);
+@import url(./blocks/popup/_notification/popup_notification.css);
 @import url(./blocks/popup/__success-image/popup__success-image.css);
 @import url(./blocks/popup/__fail-image/popup__fail-image.css);
-@import url(blocks/popup/__title/_notification/popup__title_notification.css);
+@import url(./blocks/popup/__title/_notification/popup__title_notification.css);
 /*Блок entry-container*/
 @import url(./blocks/entry-container/entry-container.css);
 @import url(./blocks/entry-container/__title/entry-container__title.css);

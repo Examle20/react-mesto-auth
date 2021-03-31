@@ -1,6 +1,8 @@
 import React from "react";
 import '../App.css';
 import Header from "./Header";
+import successImage from '../images/success.png';
+import failImage from '../images/fail.svg';
 import Main from "./Main";
 import Footer from "./Footer";
 import ImagePopup from "./ImagePopup";
@@ -8,7 +10,7 @@ import EditProfilePopup from "./EditProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import CardDeletePopup from "./CardDeletePopup";
-import SuccessPopup from "./SuccessPopup";
+import InfoTooltip from "./InfoTooltip";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Register from "./Register";
@@ -223,8 +225,7 @@ function App() {
         {/*  onButtonActive={handleStateButtonEdit}*/}
         {/*  isButtonActive={isButtonSaveUser}*/}
         {/*  buttonTitle={buttonSave}*/}
-        <SuccessPopup isOpen={false}/>
-        <FailPopup isOpen={true}/>
+
         {/*/>*/}
         {/*<AddPlacePopup*/}
         {/*  name='add'*/}
@@ -264,6 +265,8 @@ function App() {
         {/*  isOpen={isPopupWithImageOpen}*/}
         {/*  onOverlayClose={handlePressingMouse}*/}
         {/*/>*/}
+        <InfoTooltip isOpen={false} message="Вы успешно зарегистрировались!" link={successImage}/>
+        <InfoTooltip isOpen={false} message="Что-то пошло не так! Попробуйте ещё раз." link={failImage}/>
       </div>
     </CurrentUserContext.Provider>
   );
