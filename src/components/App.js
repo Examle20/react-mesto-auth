@@ -205,61 +205,61 @@ function App() {
               <Login />
             </Route>
             <Route exact path="/">
-              {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
+              {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-up" />}
             </Route>
           </Switch>
-          <Footer />
+          {loggedIn && <Footer />}
         </div>
-        <EditProfilePopup
-          name='edit'
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-          onEscClose={handleEscClose}
-          onOverlayClose={handlePressingMouse}
-          onUpdateUser={handleUpdateUser}
-          onButtonActive={handleStateButtonEdit}
-          isButtonActive={isButtonSaveUser}
-          buttonTitle={buttonSave}
+        {/*<EditProfilePopup*/}
+        {/*  name='edit'*/}
+        {/*  isOpen={isEditProfilePopupOpen}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*  onEscClose={handleEscClose}*/}
+        {/*  onOverlayClose={handlePressingMouse}*/}
+        {/*  onUpdateUser={handleUpdateUser}*/}
+        {/*  onButtonActive={handleStateButtonEdit}*/}
+        {/*  isButtonActive={isButtonSaveUser}*/}
+        {/*  buttonTitle={buttonSave}*/}
 
-        />
-        <AddPlacePopup
-          name='add'
-          isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}
-          onEscClose={handleEscClose}
-          onOverlayClose={handlePressingMouse}
-          onAddPlace={handleAddPlace}
-          buttonTitle={buttonCreate}
-          onButtonActive={handleStateButtonPlace}
-          isButtonActive={isButtonSavePlace}
-        />
-        <EditAvatarPopup
-          name='avatar'
-          isOpen={isEditAvatarPopupOpen}
-          onClose={closeAllPopups}
-          onEscClose={handleEscClose}
-          onOverlayClose={handlePressingMouse}
-          buttonTitle={buttonSave}
-          onUpdateAvatar={handleUpdateAvatar}
-          onButtonActive={handleStateButtonAvatar}
-          isButtonActive={isButtonSaveAvatar}
-        />
-        <CardDeletePopup
-          isOpen={isCardDeletePopupOpen}
-          onClose={closeAllPopups}
-          onEscClose={handleEscClose}
-          onOverlayClose={handlePressingMouse}
-          onCardDelete={handleCardDelete}
-          card={selectedDeletionCard}
-          buttonTitle={buttonDelete}
-        />
-        <ImagePopup
-          card={selectedCard}
-          onClose={closeAllPopups}
-          onEscClose={handleEscClose}
-          isOpen={isPopupWithImageOpen}
-          onOverlayClose={handlePressingMouse}
-        />
+        {/*/>*/}
+        {/*<AddPlacePopup*/}
+        {/*  name='add'*/}
+        {/*  isOpen={isAddPlacePopupOpen}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*  onEscClose={handleEscClose}*/}
+        {/*  onOverlayClose={handlePressingMouse}*/}
+        {/*  onAddPlace={handleAddPlace}*/}
+        {/*  buttonTitle={buttonCreate}*/}
+        {/*  onButtonActive={handleStateButtonPlace}*/}
+        {/*  isButtonActive={isButtonSavePlace}*/}
+        {/*/>*/}
+        {/*<EditAvatarPopup*/}
+        {/*  name='avatar'*/}
+        {/*  isOpen={isEditAvatarPopupOpen}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*  onEscClose={handleEscClose}*/}
+        {/*  onOverlayClose={handlePressingMouse}*/}
+        {/*  buttonTitle={buttonSave}*/}
+        {/*  onUpdateAvatar={handleUpdateAvatar}*/}
+        {/*  onButtonActive={handleStateButtonAvatar}*/}
+        {/*  isButtonActive={isButtonSaveAvatar}*/}
+        {/*/>*/}
+        {/*<CardDeletePopup*/}
+        {/*  isOpen={isCardDeletePopupOpen}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*  onEscClose={handleEscClose}*/}
+        {/*  onOverlayClose={handlePressingMouse}*/}
+        {/*  onCardDelete={handleCardDelete}*/}
+        {/*  card={selectedDeletionCard}*/}
+        {/*  buttonTitle={buttonDelete}*/}
+        {/*/>*/}
+        {/*<ImagePopup*/}
+        {/*  card={selectedCard}*/}
+        {/*  onClose={closeAllPopups}*/}
+        {/*  onEscClose={handleEscClose}*/}
+        {/*  isOpen={isPopupWithImageOpen}*/}
+        {/*  onOverlayClose={handlePressingMouse}*/}
+        {/*/>*/}
       </div>
     </CurrentUserContext.Provider>
   );

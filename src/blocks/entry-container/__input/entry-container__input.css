@@ -1,0 +1,14 @@
+.entry-container__input {
+  color: #CCCCCC;
+  width: 358px;
+  border: none;
+  border-bottom: 2px solid #CCCCCC;
+  background-color: rgba(255, 255, 255, 0);
+  outline: none;
+  margin-top: 30px;
+  padding: 0 0 13px 0;
+}
+
+.entry-container__input:nth-child(1) {
+  margin-top: 50px;
+}
