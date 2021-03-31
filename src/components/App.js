@@ -12,14 +12,15 @@ import EditAvatarPopup from "./EditAvatarPopup";
 import CardDeletePopup from "./CardDeletePopup";
 import InfoTooltip from "./InfoTooltip";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Register from "./Register";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
 import api from "../utils/api";
+import * as auth from "../utils/auth";
 import FailPopup from "./FailPopup";
 
-function App() {
+function App(props) {
 
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -182,6 +183,22 @@ function App() {
       })
   }
 
+  const handleTokenCheck = () => {
+    if (localStorage.getItem('jwt')){
+      const jwt = localStorage.getItem('jwt');
+      auth.checkToken(jwt).then((res) => {
+        if (res){
+          setloggedIn(true);
+          props.history.push('/my-profile')
+        }
+      });
+    }
+  }
+
+  React.useEffect(() => {
+    handleTokenCheck();
+  },[])
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
@@ -206,7 +223,7 @@ function App() {
               <Register />
             </Route>
             <Route  path="/sign-in">
-              <Login />
+              <Login onloggedIn={setloggedIn}/>
             </Route>
             <Route exact path="/">
               {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-up" />}
@@ -272,4 +289,5 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
+

@@ -21,9 +21,9 @@ function Register(props) {
     auth.register(email, password)
       .then((res) => {
         if(res.statusCode !== 400){
-          //props.history.push('/sign-in');
+          props.history.push('/sign-in');
           console.log(res)
-          console.log('Заебок');
+
         }
       });
   }
