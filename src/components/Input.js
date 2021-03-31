@@ -6,7 +6,7 @@ const Input = React.memo((props) => {
   const handleChange = (e) => {
     // console.log(e.target.value.trim().length)
     // console.log(e.target.value.trim().length < 2 )
-    // props.onChange(e)
+    props.onChange(e)
     // if(e.target.value.trim().length < 2 && e.target.validationMessage === ''){
     //   setErrorMessage('Нужно как минимум 2 символа');
     // }
