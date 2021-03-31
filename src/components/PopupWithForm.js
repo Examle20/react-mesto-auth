@@ -21,7 +21,7 @@ function PopupWithForm(props) {
 
 
   return(
-    <div className={`popup popup_validation popup_${props.name} ${classNameOpen}`} onClick={props.onOverlayClose}>
+    <div className={`popup popup_${props.name} ${classNameOpen}`} onClick={props.onOverlayClose}>
       <div className="popup__container">
         <button type="button" className="popup__button-close popup__button-close_edit" aria-label="Закрыть" onClick={props.onClose}></button>
         <form ref={elementsRef} action="pages/index.js" className="popup__form" name={`form_${props.name}`} noValidate onSubmit={props.onSubmit}>

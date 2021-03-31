@@ -8,12 +8,14 @@ import EditProfilePopup from "./EditProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import CardDeletePopup from "./CardDeletePopup";
+import SuccessPopup from "./SuccessPopup";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Register from "./Register";
 import Login from "./Login";
 import ProtectedRoute from "./ProtectedRoute";
 import api from "../utils/api";
+import FailPopup from "./FailPopup";
 
 function App() {
 
@@ -210,6 +212,7 @@ function App() {
           </Switch>
           {loggedIn && <Footer />}
         </div>
+
         {/*<EditProfilePopup*/}
         {/*  name='edit'*/}
         {/*  isOpen={isEditProfilePopupOpen}*/}
@@ -220,7 +223,8 @@ function App() {
         {/*  onButtonActive={handleStateButtonEdit}*/}
         {/*  isButtonActive={isButtonSaveUser}*/}
         {/*  buttonTitle={buttonSave}*/}
-
+        <SuccessPopup isOpen={false}/>
+        <FailPopup isOpen={true}/>
         {/*/>*/}
         {/*<AddPlacePopup*/}
         {/*  name='add'*/}
