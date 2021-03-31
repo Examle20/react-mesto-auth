@@ -21,9 +21,8 @@ function Register(props) {
     auth.register(email, password)
       .then((res) => {
         if(res.statusCode !== 400){
+          props.onOpenSuccess(true)
           props.history.push('/sign-in');
-          console.log(res)
-
         }
       });
   }

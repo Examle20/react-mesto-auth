@@ -18,11 +18,12 @@ function Login(props) {
     e.preventDefault();
     auth.authorize(email, password)
       .then((res) => {
-        if(res){
+        if(res.status){
           props.onloggedIn(true);
           props.history.push('/my-profile');
         }
-      });
+      })
+      .catch(props.onOpenFail(true))
   }
 
   return (

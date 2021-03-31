@@ -45,6 +45,10 @@ function App(props) {
 
   const [loggedIn, setloggedIn] = React.useState(false);
 
+  const [isPopupSuccessOpen, setIsPopupSuccessOpen] = React.useState(false);
+  const [isPopupFailOpen, setIsPopupFailOpen] = React.useState(false);
+
+
   const handleStateButtonEdit = (boolean) => {
     setIsButtonSaveUser(boolean);
   }
@@ -158,6 +162,8 @@ function App(props) {
     setIsEditAvatarPopupOpen(false);
     setIsCardDeletePopupOpen(false);
     setIsPopupWithImageOpen(false);
+    setIsPopupFailOpen(false);
+    setIsPopupSuccessOpen(false);
   }
 
   const handleUpdateUser = ({name, about}) => {
@@ -196,7 +202,7 @@ function App(props) {
   }
 
   React.useEffect(() => {
-    handleTokenCheck();
+    //handleTokenCheck();
   },[])
 
   return (
@@ -220,13 +226,13 @@ function App(props) {
               isLoading={isLoading}
             />
             <Route  path="/sign-up">
-              <Register />
+              <Register onOpenSuccess={setIsPopupSuccessOpen}/>
             </Route>
             <Route  path="/sign-in">
-              <Login onloggedIn={setloggedIn}/>
+              <Login onloggedIn={setloggedIn} onOpenFail={setIsPopupFailOpen}/>
             </Route>
             <Route exact path="/">
-              {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-up" />}
+              {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
             </Route>
           </Switch>
           {loggedIn && <Footer />}
@@ -282,8 +288,22 @@ function App(props) {
         {/*  isOpen={isPopupWithImageOpen}*/}
         {/*  onOverlayClose={handlePressingMouse}*/}
         {/*/>*/}
-        <InfoTooltip isOpen={false} message="Вы успешно зарегистрировались!" link={successImage}/>
-        <InfoTooltip isOpen={false} message="Что-то пошло не так! Попробуйте ещё раз." link={failImage}/>
+        <InfoTooltip
+          isOpen={isPopupSuccessOpen}
+          message="Вы успешно зарегистрировались!"
+          link={successImage}
+          onClose={closeAllPopups}
+          onEscClose={handleEscClose}
+          onOverlayClose={handlePressingMouse}
+        />
+        <InfoTooltip
+          isOpen={isPopupFailOpen}
+          message="Что-то пошло не так! Попробуйте ещё раз."
+          link={failImage}
+          onClose={closeAllPopups}
+          onEscClose={handleEscClose}
+          onOverlayClose={handlePressingMouse}
+        />
       </div>
     </CurrentUserContext.Provider>
   );
