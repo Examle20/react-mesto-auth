@@ -12,6 +12,7 @@ import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Register from "./Register";
 import Login from "./Login";
+import ProtectedRoute from "./ProtectedRoute";
 import api from "../utils/api";
 
 function App() {
@@ -183,19 +184,20 @@ function App() {
         <div className="page">
           <Header />
           <Switch>
-            <Route exact path='/profile'>
-              <Main
-                onEditProfile={handleEditProfileClick}
-                onAddPlace={handleAddPlaceClick}
-                onEditAvatar={handleEditAvatarClick}
-                onCardClick={handleCardClick}
-                onBasketClick={handleBasketClick}
-                cards={cards}
-                onCardLike={handleCardLike}
-                onCardDelete={handleDeleteSelectedCard}
-                isLoading={isLoading}
-              />
-            </Route>
+            <ProtectedRoute
+              component={Main}
+              path='/my-profile'
+              loggedIn={loggedIn}
+              onEditProfile={handleEditProfileClick}
+              onAddPlace={handleAddPlaceClick}
+              onEditAvatar={handleEditAvatarClick}
+              onCardClick={handleCardClick}
+              onBasketClick={handleBasketClick}
+              cards={cards}
+              onCardLike={handleCardLike}
+              onCardDelete={handleDeleteSelectedCard}
+              isLoading={isLoading}
+            />
             <Route  path="/sign-up">
               <Register />
             </Route>
