@@ -16,10 +16,11 @@ function Header(props) {
     localStorage.removeItem('jwt')
     props.onOut(false);
     props.onClearEmail('');
+    props.onloggedIn(false);
   }
 
   const handleLinkPress = () => {
-    if(props.isAuth){
+    if(props.isOut){
       sigOut()
     }else {
       props.onLink();

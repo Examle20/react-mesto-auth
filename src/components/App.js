@@ -210,7 +210,7 @@ function App(props) {
   }
 
   React.useEffect(() => {
-    //handleTokenCheck();
+    handleTokenCheck();
   },[])
 
   return (
@@ -224,6 +224,7 @@ function App(props) {
             isOut={out}
             onOut={setOut}
             onClearEmail={setUserEmail}
+            onloggedIn={setloggedIn}
           />
           <Switch>
             <ProtectedRoute
