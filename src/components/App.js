@@ -48,7 +48,11 @@ function App(props) {
   const [isPopupSuccessOpen, setIsPopupSuccessOpen] = React.useState(false);
   const [isPopupFailOpen, setIsPopupFailOpen] = React.useState(false);
 
+  const [isAuth, setIsAuth] = React.useState(true);
 
+  const handleHeaderLink = () => {
+    setIsAuth(!isAuth);
+  }
   const handleStateButtonEdit = (boolean) => {
     setIsButtonSaveUser(boolean);
   }
@@ -209,7 +213,7 @@ function App(props) {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <div className="page">
-          <Header />
+          <Header isAuth={isAuth} onLink={handleHeaderLink}/>
           <Switch>
             <ProtectedRoute
               component={Main}
@@ -226,7 +230,7 @@ function App(props) {
               isLoading={isLoading}
             />
             <Route  path="/sign-up">
-              <Register onOpenSuccess={setIsPopupSuccessOpen}/>
+              <Register onOpenSuccess={setIsPopupSuccessOpen} onLink={handleHeaderLink} isAuth={isAuth}/>
             </Route>
             <Route  path="/sign-in">
               <Login onloggedIn={setloggedIn} onOpenFail={setIsPopupFailOpen}/>
@@ -237,7 +241,6 @@ function App(props) {
           </Switch>
           {loggedIn && <Footer />}
         </div>
-
         {/*<EditProfilePopup*/}
         {/*  name='edit'*/}
         {/*  isOpen={isEditProfilePopupOpen}*/}

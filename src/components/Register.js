@@ -17,20 +17,27 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-
     auth.register(email, password)
       .then((res) => {
+        console.log(res)
         if(res.statusCode !== 400){
           props.onOpenSuccess(true)
           props.history.push('/sign-in');
         }
+      })
+      .catch((err) => {
+        console.log(err)
       });
   }
+
+  React.useEffect(()=>{
+    return props.isAuth ? props.onLink() : '';
+  },[])
 
   return (
     <div className="entry-container">
       <h2 className="entry-container__title">Регистрация</h2>
-      <form action="" className="entry-container__form" onSubmit={handleSubmit}>
+      <form action="" className="entry-container__form" onSubmit={handleSubmit} noValidate>
         <Input
           placeholder="Email"
           className="entry-container__input"
@@ -45,7 +52,7 @@ function Register(props) {
         />
         <button className="entry-container__submit" type="submit">Регистрация</button>
       </form>
-      <p className="entry-container__auth">Уже зарегистрированы? <Link to="sign-in" className="entry-container__auth-link">Войти</Link></p>
+      <p className="entry-container__auth">Уже зарегистрированы? <Link to="sign-in" className="entry-container__auth-link" onClick={props.onLink}>Войти</Link></p>
     </div>
   )
 }

@@ -18,12 +18,16 @@ function Login(props) {
     e.preventDefault();
     auth.authorize(email, password)
       .then((res) => {
-        if(res.status){
+        console.log(res)
+        if(res.statusCode !== 401 ) {
           props.onloggedIn(true);
           props.history.push('/my-profile');
         }
       })
-      .catch(props.onOpenFail(true))
+      .catch( err => {
+        console.log(err);
+        props.onOpenFail(true);
+      })
   }
 
   return (

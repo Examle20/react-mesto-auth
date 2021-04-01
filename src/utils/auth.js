@@ -8,13 +8,14 @@ export const register = (email, password) => {
     },
     body: JSON.stringify({email, password})
   })
-    .then((response) => {
-      return response.json();
+    .then(res => {
+      if (!res.ok){
+        return Promise.reject(res.status)
+      } else{
+        console.log(res)
+        return res.json();
+      }
     })
-    .then((res) => {
-      return res;
-    })
-    .catch((err) => console.log(err));
 };
 
 export const authorize = (email, password) => {
@@ -25,7 +26,14 @@ export const authorize = (email, password) => {
     },
     body: JSON.stringify({email, password})
   })
-    .then((response => response.json()))
+    .then(res => {
+      if (!res.ok){
+        return Promise.reject(res.status)
+      } else{
+        console.log(res)
+        return res.json();
+      }
+    })
     .then((data) => {
       console.log(data)
       if (data){
@@ -33,7 +41,6 @@ export const authorize = (email, password) => {
         return data;
       }
     })
-    .catch(err => console.log(err))
 };
 
 export const checkToken = (token) => {
