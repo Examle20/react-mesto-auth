@@ -202,8 +202,9 @@ function App(props) {
       const jwt = localStorage.getItem('jwt');
       auth.checkToken(jwt).then((res) => {
         if (res){
+          setUserEmail(res.data.email)
           setloggedIn(true);
-          props.history.push('/my-profile')
+          props.history.push('/')
         }
       });
     }
@@ -225,11 +226,12 @@ function App(props) {
             onOut={setOut}
             onClearEmail={setUserEmail}
             onloggedIn={setloggedIn}
+            loggedIn={loggedIn}
           />
           <Switch>
             <ProtectedRoute
               component={Main}
-              path='/my-profile'
+              path="/"
               loggedIn={loggedIn}
               onEditProfile={handleEditProfileClick}
               onAddPlace={handleAddPlaceClick}
@@ -240,8 +242,9 @@ function App(props) {
               onCardLike={handleCardLike}
               onCardDelete={handleDeleteSelectedCard}
               isLoading={isLoading}
+              exact='exact'
             />
-            <Route  path="/sign-up">
+            <Route path="/sign-up">
               <Register onOpenSuccess={setIsPopupSuccessOpen} onLink={handleHeaderLink} isAuth={isAuth}/>
             </Route>
             <Route  path="/sign-in">
@@ -252,7 +255,7 @@ function App(props) {
                 onOut={setOut}
               />
             </Route>
-            <Route exact path="/">
+            <Route path="/">
               {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
             </Route>
           </Switch>

@@ -28,6 +28,12 @@ function Header(props) {
   }
 
   React.useEffect(() => {
+    if(props.loggedIn){
+      props.onOut(true);
+    }
+  },[props.loggedIn])
+
+  React.useEffect(() => {
     handleLinkTitle();
   },[props.isAuth, props.isOut])
 

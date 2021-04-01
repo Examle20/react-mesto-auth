@@ -24,7 +24,7 @@ function Login(props) {
           props.onEmail(email);
           props.onOut(true);
           props.onloggedIn(true);
-          props.history.push('/my-profile');
+          props.history.push('/');
         }
       })
       .catch( err => {
