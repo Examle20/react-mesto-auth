@@ -50,6 +50,8 @@ function App(props) {
 
   const [isAuth, setIsAuth] = React.useState(true);
 
+  const [userEmail, setUserEmail] = React.useState('');
+
   const handleHeaderLink = () => {
     setIsAuth(!isAuth);
   }
@@ -213,7 +215,11 @@ function App(props) {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <div className="page">
-          <Header isAuth={isAuth} onLink={handleHeaderLink}/>
+          <Header
+            isAuth={isAuth}
+            onLink={handleHeaderLink}
+            email={userEmail}
+          />
           <Switch>
             <ProtectedRoute
               component={Main}
@@ -233,7 +239,11 @@ function App(props) {
               <Register onOpenSuccess={setIsPopupSuccessOpen} onLink={handleHeaderLink} isAuth={isAuth}/>
             </Route>
             <Route  path="/sign-in">
-              <Login onloggedIn={setloggedIn} onOpenFail={setIsPopupFailOpen}/>
+              <Login
+                onloggedIn={setloggedIn}
+                onOpenFail={setIsPopupFailOpen}
+                onEmail={setUserEmail}
+              />
             </Route>
             <Route exact path="/">
               {loggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}

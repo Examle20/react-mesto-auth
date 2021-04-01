@@ -12,7 +12,6 @@ export const register = (email, password) => {
       if (!res.ok){
         return Promise.reject(res.status)
       } else{
-        console.log(res)
         return res.json();
       }
     })

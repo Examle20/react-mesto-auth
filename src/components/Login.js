@@ -14,12 +14,14 @@ function Login(props) {
     setPassword(e.target.value)
   }
 
+  
   function handleSubmit(e) {
     e.preventDefault();
     auth.authorize(email, password)
       .then((res) => {
         console.log(res)
         if(res.statusCode !== 401 ) {
+          props.onEmail(email);
           props.onloggedIn(true);
           props.history.push('/my-profile');
         }
