@@ -14,7 +14,7 @@ function Login(props) {
     setPassword(e.target.value)
   }
 
-  
+
   function handleSubmit(e) {
     e.preventDefault();
     auth.authorize(email, password)
@@ -22,6 +22,7 @@ function Login(props) {
         console.log(res)
         if(res.statusCode !== 401 ) {
           props.onEmail(email);
+          props.onOut(true);
           props.onloggedIn(true);
           props.history.push('/my-profile');
         }

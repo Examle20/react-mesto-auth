@@ -52,6 +52,8 @@ function App(props) {
 
   const [userEmail, setUserEmail] = React.useState('');
 
+  const [out, setOut] = React.useState(false);
+
   const handleHeaderLink = () => {
     setIsAuth(!isAuth);
   }
@@ -219,6 +221,7 @@ function App(props) {
             isAuth={isAuth}
             onLink={handleHeaderLink}
             email={userEmail}
+            isOut={out}
           />
           <Switch>
             <ProtectedRoute
@@ -243,6 +246,7 @@ function App(props) {
                 onloggedIn={setloggedIn}
                 onOpenFail={setIsPopupFailOpen}
                 onEmail={setUserEmail}
+                onOut={setOut}
               />
             </Route>
             <Route exact path="/">
