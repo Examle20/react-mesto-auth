@@ -222,6 +222,8 @@ function App(props) {
             onLink={handleHeaderLink}
             email={userEmail}
             isOut={out}
+            onOut={setOut}
+            onClearEmail={setUserEmail}
           />
           <Switch>
             <ProtectedRoute
