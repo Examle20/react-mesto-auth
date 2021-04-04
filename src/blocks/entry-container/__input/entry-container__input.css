@@ -12,3 +12,9 @@
 .entry-container__input:nth-child(1) {
   margin-top: 50px;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .entry-container__input {
+    width: 260px;
+  }
+}

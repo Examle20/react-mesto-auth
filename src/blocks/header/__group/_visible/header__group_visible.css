@@ -1,0 +1,9 @@
+.header__group_visible {
+  display: flex;
+}
+
+@media screen and (min-width: 767px) {
+  .header__group_visible {
+    display: none;
+  }
+}

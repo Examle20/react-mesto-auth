@@ -10,6 +10,14 @@
 @import url(./blocks/header/__user/header__user.css);
 @import url(./blocks/header/__group/header__group.css);
 @import url(./blocks/header/__link/_out/header__link_out.css);
+@import url(./blocks/header/__group/_mobile/header__group_mobile.css);
+@import url(./blocks/header/__mobile/header__mobile.css);
+@import url(./blocks/header/__button-mobile/header__button-mobile.css);
+@import url(./blocks/header/__user/_mobile/header__user_mobile.css);
+@import url(./blocks/header/__desktop/header__desktop.css);
+@import url(./blocks/header/__group/_visible/header__group_visible.css);
+@import url(./blocks/header/__group/_hidden/header__group_hidden.css);
+@import url(./blocks/header/__desktop/_visiblie/header__desktop_visible.css);
 /*Блок profile*/
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__photo/profile__photo.css);

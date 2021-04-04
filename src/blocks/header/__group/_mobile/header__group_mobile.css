@@ -1,0 +1,13 @@
+.header__group_mobile {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 40px 0;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .header__group_mobile {
+    margin-top: 40px;
+    flex-direction: column;
+  }
+}

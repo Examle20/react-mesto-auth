@@ -2,3 +2,9 @@
   display: flex;
   margin: 51px 0 0 0;
 }
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .header__group {
+    margin: 34px 30px 0 0;
+  }
+}

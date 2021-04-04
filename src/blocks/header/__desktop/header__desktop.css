@@ -1,13 +1,13 @@
-.entry-container {
+.header__desktop {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin: 0 auto;
-  width: 400px;
+  justify-content: space-between;
+  width: 880px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-  .entry-container {
+  .header__desktop {
+    display: none;
     width: 320px;
   }
 }
