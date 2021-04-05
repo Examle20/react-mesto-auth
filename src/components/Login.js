@@ -19,7 +19,6 @@ function Login(props) {
     e.preventDefault();
     auth.authorize(email, password)
       .then((res) => {
-        console.log(res)
         if(res.statusCode !== 401 ) {
           props.onEmail(email);
           props.onOut(true);

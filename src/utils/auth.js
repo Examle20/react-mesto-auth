@@ -29,12 +29,10 @@ export const authorize = (email, password) => {
       if (!res.ok){
         return Promise.reject(res.status)
       } else{
-        console.log(res)
         return res.json();
       }
     })
     .then((data) => {
-      console.log(data)
       if (data){
         localStorage.setItem('jwt', data.token);
         return data;
