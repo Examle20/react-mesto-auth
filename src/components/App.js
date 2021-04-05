@@ -182,6 +182,9 @@ function App(props) {
         closeAllPopups();
         handleButtonState(setButtonSave, false,'Сохранить')
       })
+      .catch(err => {
+        console.log(err)
+      })
   }
 
   const handleUpdateAvatar = (avatar) => {
@@ -206,7 +209,10 @@ function App(props) {
           setloggedIn(true);
           props.history.push('/')
         }
-      });
+      })
+        .catch(err => {
+          console.log(err)
+        });
     }
   }
 
