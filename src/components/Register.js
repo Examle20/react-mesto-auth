@@ -39,12 +39,17 @@ function Register(props) {
       <h2 className="entry-container__title">Регистрация</h2>
       <form action="" className="entry-container__form" onSubmit={handleSubmit} noValidate>
         <Input
+          name='email'
+          type='email'
           placeholder="Email"
           className="entry-container__input"
           value={email || ''}
           onChange={handleChangeEmail}
           />
         <Input
+          name='password'
+          type='password'
+          minLength='4'
           placeholder="Пароль"
           className="entry-container__input"
           value={password || ''}

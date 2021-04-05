@@ -38,6 +38,7 @@ const [link, setLink] = React.useState('');
               onChange={handleChangeLink}
               isButtonActive={props.isButtonActive}
               onButtonActive={props.onButtonActive}
+              className="popup__form-input"
             />
           </label>
         </>

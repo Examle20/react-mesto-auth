@@ -56,6 +56,7 @@ function EditProfilePopup(props) {
             isOpen={props.isOpen}
             isButtonActive={props.isButtonActive}
             onButtonActive={props.onButtonActive}
+            className="popup__form-input"
             />
         </label>
         <label className="popup__form-field">
@@ -71,6 +72,7 @@ function EditProfilePopup(props) {
             isOpen={props.isOpen}
             isButtonActive={props.isButtonActive}
             onButtonActive={props.onButtonActive}
+            className="popup__form-input"
           />
         </label>
       </>

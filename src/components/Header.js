@@ -5,7 +5,6 @@ function Header(props) {
   const [linkTitle, setLinkTitle] = React.useState('');
   const [mobileMenu, setMobileMenu] = React.useState(false);
 
-  console.log(mobileMenu)
   const showMobileMenu = () => {
     setMobileMenu(!mobileMenu);
   }
@@ -56,7 +55,7 @@ function Header(props) {
 
       <div className={`header__mobile ${!props.loggedIn && 'header__group_hidden'}`}>
         <div className="header__logo"></div>
-        <button className="header__button-mobile" onClick={showMobileMenu}></button>
+        <button className={`header__button-mobile ${mobileMenu && 'header__button-mobile_close'}`} onClick={showMobileMenu}></button>
       </div>
 
       <div className={`header__desktop ${!props.loggedIn && 'header__desktop_visible'}`}>

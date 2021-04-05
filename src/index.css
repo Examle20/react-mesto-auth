@@ -18,6 +18,7 @@
 @import url(./blocks/header/__group/_visible/header__group_visible.css);
 @import url(./blocks/header/__group/_hidden/header__group_hidden.css);
 @import url(./blocks/header/__desktop/_visiblie/header__desktop_visible.css);
+@import url(./blocks/header/__button-mobile/_close/header__button-mobile_close.css);
 /*Блок profile*/
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/profile/__photo/profile__photo.css);
@@ -46,6 +47,8 @@
 /*Блок footer*/
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
+/*Блок input*/
+@import url(./blocks/input/input.css);
 /*Блок popup*/
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/popup/__container/popup__container.css);

@@ -4,22 +4,22 @@ const Input = React.memo((props) => {
   const [errorMessage, setErrorMessage] = React.useState('');
 
   const handleChange = (e) => {
-    // console.log(e.target.value.trim().length)
-    // console.log(e.target.value.trim().length < 2 )
+     console.log(e.target.value.trim().length)
+     console.log(e.target.value.trim().length < 2 )
     props.onChange(e)
-    // if(e.target.value.trim().length < 2 && e.target.validationMessage === ''){
-    //   setErrorMessage('Нужно как минимум 2 символа');
-    // }
-    // else{
-    //   setErrorMessage(e.target.validationMessage);
-    // }
+     if(e.target.value.trim().length < 2 && e.target.validationMessage === ''){
+       setErrorMessage('Нужно как минимум 2 символа');
+     }
+     else{
+       setErrorMessage(e.target.validationMessage);
+     }
   }
 
   React.useEffect(() => {
     if(!props.isOpen) setErrorMessage('');
   },[props.isOpen])
   return (
-    <>
+    <div className="input">
       <input
         id={`${props.name}-input`}
         type={props.type}
@@ -38,7 +38,7 @@ const Input = React.memo((props) => {
       <span className={`${props.name}-input-error popup__form-error popup__form-error_active`}>
         {errorMessage}
       </span>
-    </>
+    </div>
   );
 })
 
