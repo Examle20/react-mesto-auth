@@ -17,16 +17,9 @@ function Header(props) {
     }
   }
 
-  const sigOut = () => {
-    localStorage.removeItem('jwt')
-    props.onOut(false);
-    props.onClearEmail('');
-    props.onloggedIn(false);
-  }
-
   const handleLinkPress = () => {
     if(props.isOut){
-      sigOut()
+      props.onSigOut();
     }else {
       props.onLink();
     }

@@ -17,17 +17,7 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    auth.register(email, password)
-      .then((res) => {
-        console.log(res)
-        if(res.statusCode !== 400){
-          props.onOpenSuccess(true)
-          props.history.push('/sign-in');
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-      });
+    props.onRegister(email, password);
   }
 
   React.useEffect(()=>{

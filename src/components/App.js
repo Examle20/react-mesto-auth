@@ -102,8 +102,7 @@ function App(props) {
     handleButtonState(setButtonDelete, true, 'Удаление...')
     api.removeCard(card._id)
       .then((res) => {
-        const newCards = cards.filter(newCard => newCard._id !== card._id);
-        setCards(newCards);
+        setCards((cards) => cards.filter((c) => c._id !== card._id))
         closeAllPopups();
         handleButtonState(setButtonDelete, true, 'Да')
       })
@@ -216,6 +215,42 @@ function App(props) {
     }
   }
 
+  const handleSigOut = () => {
+    localStorage.removeItem('jwt')
+    setOut(false);
+    setUserEmail('');
+    setloggedIn(false);
+  }
+
+  const handleAuthorize = (email, password) => {
+    auth.authorize(email, password)
+      .then((res) => {
+        if(res.statusCode !== 401 ) {
+          setUserEmail(email);
+          setOut(true);
+          setloggedIn(true);
+          props.history.push('/');
+        }
+      })
+      .catch( err => {
+        console.log(err);
+        setIsPopupFailOpen(true);
+      })
+  }
+
+  const handleRegister = (email, password) => {
+    auth.register(email, password)
+      .then((res) => {
+        if(res.statusCode !== 400){
+          setIsPopupSuccessOpen(true)
+          props.history.push('/sign-in');
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  }
+
   React.useEffect(() => {
     handleTokenCheck();
   },[])
@@ -231,8 +266,8 @@ function App(props) {
             isOut={out}
             onOut={setOut}
             onClearEmail={setUserEmail}
-            onloggedIn={setloggedIn}
             loggedIn={loggedIn}
+            onSigOut={handleSigOut}
           />
           <Switch>
             <ProtectedRoute
@@ -251,14 +286,14 @@ function App(props) {
               exact='exact'
             />
             <Route path="/sign-up">
-              <Register onOpenSuccess={setIsPopupSuccessOpen} onLink={handleHeaderLink} isAuth={isAuth}/>
+              <Register
+                onRegister={handleRegister}
+                onLink={handleHeaderLink}
+                isAuth={isAuth}/>
             </Route>
             <Route  path="/sign-in">
               <Login
-                onloggedIn={setloggedIn}
-                onOpenFail={setIsPopupFailOpen}
-                onEmail={setUserEmail}
-                onOut={setOut}
+                onLogin={handleAuthorize}
               />
             </Route>
             <Route path="/">

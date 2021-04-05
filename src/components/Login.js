@@ -17,19 +17,7 @@ function Login(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    auth.authorize(email, password)
-      .then((res) => {
-        if(res.statusCode !== 401 ) {
-          props.onEmail(email);
-          props.onOut(true);
-          props.onloggedIn(true);
-          props.history.push('/');
-        }
-      })
-      .catch( err => {
-        console.log(err);
-        props.onOpenFail(true);
-      })
+    props.onLogin(email, password);
   }
 
   return (

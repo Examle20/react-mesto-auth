@@ -48,6 +48,11 @@ export const checkToken = (token) => {
       'Authorization': `Bearer ${token}`,
     }
   })
-    .then(res => res.json())
-    .then(data => data)
+    .then(res => {
+      if (!res.ok){
+        return Promise.reject(res.status)
+      } else{
+        return res.json();
+      }
+    })
 }
