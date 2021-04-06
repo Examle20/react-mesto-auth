@@ -225,12 +225,11 @@ function App(props) {
   const handleAuthorize = (email, password) => {
     auth.authorize(email, password)
       .then((res) => {
-        if(res.statusCode !== 401 ) {
-          setUserEmail(email);
-          setOut(true);
-          setloggedIn(true);
-          props.history.push('/');
-        }
+        localStorage.setItem('jwt', res.token);
+        setUserEmail(email);
+        setOut(true);
+        setloggedIn(true);
+        props.history.push('/');
       })
       .catch( err => {
         console.log(err);
@@ -241,13 +240,12 @@ function App(props) {
   const handleRegister = (email, password) => {
     auth.register(email, password)
       .then((res) => {
-        if(res.statusCode !== 400){
-          setIsPopupSuccessOpen(true)
-          props.history.push('/sign-in');
-        }
+        setIsPopupSuccessOpen(true)
+        props.history.push('/sign-in');
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err);
+        setIsPopupFailOpen(true);
       });
   }
 

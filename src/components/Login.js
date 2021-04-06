@@ -25,7 +25,7 @@ function Login(props) {
       <h2 className="entry-container__title">Вход</h2>
       <form action="" className="entry-container__form" onSubmit={handleSubmit} noValidate>
         <Input
-          name='email'
+          name='email-login'
           type='email'
           placeholder="Email"
           className="entry-container__input"
@@ -33,7 +33,7 @@ function Login(props) {
           onChange={handleChangeEmail}
         />
         <Input
-          name='password'
+          name='password-login'
           type='password'
           minLength='4'
           placeholder="Пароль"
